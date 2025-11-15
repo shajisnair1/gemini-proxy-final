@@ -121,17 +121,17 @@ async function generateContent() {
 
     // 3. CALL GEMINI API DIRECTLY
     try {
-        // Initialize Gemini AI
-        const genAI = new GoogleGenerativeAI(AIzaSyAem101c5ihsizn3o50BHpdLK35lCtjEZQ);
-        const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+    // Initialize Gemini AI using the API KEY variable (not plain text)
+    const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
 
-        // Create the prompt
-        const fullPrompt = `You are an expert educational content generator named Vidyaayaanam. Create a ${resourceType} for Class ${selectedClass}, Subject ${selectedSubject}, Topic ${selectedTopic}. The content should be in ${medium} language. Format the output in a **minimalist, modern, and easy-to-read style**. Use clear headings (using ## and ###), bullet points, and short, professional paragraphs. Avoid overly decorative or conversational intros/outros. User Request/Query: "${userQuery}".`;
+    // Create the prompt
+    const fullPrompt = `You are an expert educational content generator named Vidyaayaanam. Create a ${resourceType} for Class ${selectedClass}, Subject ${selectedSubject}, Topic ${selectedTopic}. The content should be in ${medium} language. Format the output in a **minimalist, modern, and easy-to-read style**. Use clear headings (using ## and ###), bullet points, and short, professional paragraphs. Avoid overly decorative or conversational intros/outros. User Request/Query: "${userQuery}".`;
 
-        // Generate content
-        const result = await model.generateContent(fullPrompt);
-        const response = await result.response;
-        const text = response.text();
+    // Generate content
+    const result = await model.generateContent(fullPrompt);
+    const response = await result.response;
+    const text = response.text();
 
         // 4. DISPLAY SUCCESS WITH COPY BUTTON
         if (text) {
