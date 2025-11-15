@@ -122,7 +122,7 @@ async function generateContent() {
     // 3. CALL GEMINI API DIRECTLY
     try {
         // Initialize Gemini AI
-        const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+        const genAI = new GoogleGenerativeAI(AIzaSyAem101c5ihsizn3o50BHpdLK35lCtjEZQ);
         const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
 
         // Create the prompt
