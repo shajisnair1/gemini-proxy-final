@@ -1,8 +1,0 @@
-[build]
-  functions = "netlify/functions"
-
-[[redirects]]
-  from = "/generate-content"
-  to = "/.netlify/functions/server/generate-content"
-  status = 200
-  force = true
